@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成AI活用 業務時間短縮診断ツール</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>生成AI活用 業務時間短縮診断ツール</h1>
+            <p class="subtitle">あなたの業務にぴったりの生成AI活用法がわかります</p>
+        </header>
+
+        <main>
+            <div id="questionnaireSection" class="section active">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progressIndicator" class="progress-indicator"></div>
+                    </div>
+                    <div id="questionNumber">質問 1/5</div>
+                </div>
+
+                <div id="questionsContainer">
+                    <div class="question-slide active" id="q1">
+                        <h2>あなたの業界を選んでください</h2>
+                        <div class="options-grid">
+                            <div class="option" data-value="office">
+                                <div class="option-icon">💼</div>
+                                <div class="option-text">オフィスワーク<br>(企業の管理部門など)</div>
+                            </div>
+                            <div class="option" data-value="sales">
+                                <div class="option-icon">🛍️</div>
+                                <div class="option-text">営業・販売・サービス業</div>
+                            </div>
+                            <div class="option" data-value="medical">
+                                <div class="option-icon">🏥</div>
+                                <div class="option-text">医療・介護・福祉</div>
+                            </div>
+                            <div class="option" data-value="manufacturing">
+                                <div class="option-icon">🔧</div>
+                                <div class="option-text">製造・技術・研究</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-slide" id="q2">
+                        <h2>あなたの部門・職種を選んでください</h2>
+                        <div class="options-grid" id="departmentOptions">
+                            <!-- 動的に生成される部門オプション -->
+                        </div>
+                    </div>
+
+                    <div class="question-slide" id="q3">
+                        <h2>主に使用するツールやシステムを選んでください</h2>
+                        <div class="options-grid">
+                            <div class="option" data-value="office_tools">
+                                <div class="option-icon">📊</div>
+                                <div class="option-text">Word・Excel・PowerPoint</div>
+                            </div>
+                            <div class="option" data-value="comm_tools">
+                                <div class="option-icon">📧</div>
+                                <div class="option-text">メール・チャットツール</div>
+                            </div>
+                            <div class="option" data-value="business_systems">
+                                <div class="option-icon">💻</div>
+                                <div class="option-text">業務システム・データベース</div>
+                            </div>
+                            <div class="option" data-value="paper_based">
+                                <div class="option-icon">📝</div>
+                                <div class="option-text">手書き・紙ベースの資料</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-slide" id="q4">
+                        <h2>主に作成する文書やデータはどれですか？</h2>
+                        <div class="options-grid">
+                            <div class="option" data-value="reports">
+                                <div class="option-icon">📑</div>
+                                <div class="option-text">報告書・企画書・提案書</div>
+                            </div>
+                            <div class="option" data-value="records">
+                                <div class="option-icon">📒</div>
+                                <div class="option-text">記録・議事録・メモ</div>
+                            </div>
+                            <div class="option" data-value="manuals">
+                                <div class="option-icon">📘</div>
+                                <div class="option-text">マニュアル・手順書・FAQ</div>
+                            </div>
+                            <div class="option" data-value="data_analysis">
+                                <div class="option-icon">📊</div>
+                                <div class="option-text">データ集計・分析レポート</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-slide" id="q5">
+                        <h2>以下の業務のうち、最も頻繁に行うものはどれですか？</h2>
+                        <div class="options-grid">
+                            <div class="option" data-value="document_creation">
+                                <div class="option-icon">📄</div>
+                                <div class="option-text">定型的な文書作成<br>(メール・報告書など)</div>
+                            </div>
+                            <div class="option" data-value="info_organization">
+                                <div class="option-icon">📋</div>
+                                <div class="option-text">情報整理・要約<br>(会議内容・データなど)</div>
+                            </div>
+                            <div class="option" data-value="content_creation">
+                                <div class="option-icon">🎨</div>
+                                <div class="option-text">コンテンツ作成<br>(SNS・広報・企画など)</div>
+                            </div>
+                            <div class="option" data-value="data_entry">
+                                <div class="option-icon">⌨️</div>
+                                <div class="option-text">データ入力・処理<br>(Excel・システムなど)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button id="prevBtn" class="nav-btn" disabled>前へ</button>
+                </div>
+            </div>
+
+            <div id="resultSection" class="section">
+                <div class="result-header">
+                    <h2>診断結果</h2>
+                    <div class="result-summary">
+                        <div class="time-saved-container">
+                            <div class="time-saved-label">生成AI活用で月間</div>
+                            <div class="time-saved-value"><span id="totalTimeSaved">0</span>時間</div>
+                            <div class="time-saved-label">の短縮が可能です</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-details">
+                    <div class="use-cases">
+                        <h3>あなたの職種におすすめの活用事例</h3>
+                        <div id="useCasesList" class="use-cases-list">
+                            <!-- 活用事例が動的に挿入される -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="restart-container">
+                    <button id="restartBtn" class="restart-btn">もう一度診断する</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2025 生成AI活用 業務時間短縮診断ツール</p>
+        </footer>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
