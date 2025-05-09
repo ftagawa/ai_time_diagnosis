@@ -234,7 +234,7 @@ const useCasesData = [
     },
     {
         id: "article_writing_assist",
-        description: "記事の執筆（下書きを整形・校正）",
+        description: "記事・資料の作成（下書きを整形・校正）",
         timeSaved: 1.25,
         details: "自身で書いたラフな下書きを、AIに読みやすく整形・校正してもらう。",
         targetJobs: "広報, Webマーケティング, 商品企画, 研究者",
