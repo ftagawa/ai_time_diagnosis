@@ -284,11 +284,7 @@ footer {
 }
 
 /* レスポンシブデザイン */
-@media (min-width: 768px) {
-    .result-details {
-        grid-template-columns: 1fr 1fr;
-    }
-}
+@media (min-width: 768px) {}
 
 @media (max-width: 767px) {
     .options-grid {
