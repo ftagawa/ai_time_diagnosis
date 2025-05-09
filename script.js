@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (mainCasesToShow.length > 0) {
             const heading = document.createElement('h4');
-            heading.textContent = `あなたの業種におすすめの活用事例 (上位${mainCasesToShow.length}件)`;
+            heading.textContent = `あなたの業種におすすめの活用事例`;
             useCasesList.appendChild(heading);
             mainCasesToShow.forEach(useCase => {
                 if (!displayedUseCases.find(uc => uc.id === useCase.id)) {
@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         if (subCasesToShow.length > 0) {
             const heading = document.createElement('h4');
-            heading.textContent = `あなたの業務スタイルに合う活用事例 (上位${subCasesToShow.length}件)`;
+            heading.textContent = `あなたの業務スタイルに合う活用事例`;
             useCasesList.appendChild(heading);
             subCasesToShow.forEach(useCase => {
                 if (!displayedUseCases.find(uc => uc.id === useCase.id)) {
