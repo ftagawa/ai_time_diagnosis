@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Q2の選択肢データ
     const q2ChoicesData = {
         corporate: [ // Q1: コーポレート・バックオフィス系
-            { value: 'office_assistant', icon: '📋', text: 'A. 事務・アシスタント業務（一般事務, 営業事務, 秘書）' },
-            { value: 'admin_dept', icon: '⚖️', text: 'B. 管理部門（総務, 人事, 経理, 財務, 法務, 広報）' },
+            { value: 'office_assistant', icon: '📋', text: 'A. 一般事務, 営業事務, 秘書' },
+            { value: 'admin_dept', icon: '⚖️', text: 'B. 総務, 人事, 経理, 財務, 法務, 広報' },
             { value: 'management_planning', icon: '📊', text: 'C. 経営企画・管理職' },
             { value: 'corporate_other', icon: '📎', text: 'D. その他（例：バックオフィス系の特殊業務）' }
         ],
@@ -37,15 +37,15 @@ document.addEventListener('DOMContentLoaded', function () {
             { value: 'tech_other', icon: '⚙️', text: 'D. その他（例：エンジニア系の特殊業務）' }
         ],
         human_service: [ // Q1: ヒューマンサービス・専門職系
-            { value: 'education_childcare', icon: '🧑‍🏫', text: 'A. 教育・保育職（教員, 保育士）' },
-            { value: 'medical_professional', icon: '⚕️', text: 'B. 医療職（医師, 看護師, 薬剤師, 理学療法士）' },
-            { value: 'care_professional', icon: '🤲', text: 'C. 介護専門職系（訪問介護員, 介護福祉士）' },
+            { value: 'education_childcare', icon: '🧑‍🏫', text: 'A. 教員, 保育士' },
+            { value: 'medical_professional', icon: '⚕️', text: 'B. 医師, 看護師, 薬剤師, 理学療法士' },
+            { value: 'care_professional', icon: '🤲', text: 'C. 介護専門職' },
             { value: 'human_other', icon: '🤝', text: 'D. その他（例：ケア系の特殊業務）' }
         ],
         business_customer: [ // Q1: ビジネス推進・顧客対応系
-            { value: 'sales', icon: '💼', text: 'A. 営業（法人営業, 個人営業）' },
+            { value: 'sales', icon: '💼', text: 'A. 営業' },
             { value: 'customer_support', icon: '🎧', text: 'B. カスタマーサポート・オペレーター' },
-            { value: 'hospitality_retail', icon: '🛍️', text: 'C. 接客・販売・サービス系（飲食店スタッフ, ホテルスタッフ, 販売スタッフ）' },
+            { value: 'hospitality_retail', icon: '🛍️', text: 'C. 接客・販売・サービス系' },
             { value: 'web_marketing_planning', icon: '🌐', text: 'D. Web・マーケティング・企画職' }
         ]
     };
